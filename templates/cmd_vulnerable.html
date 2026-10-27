@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>OS Command Injection — In-band (VULNERABLE)</h2>
+<p>Try host: <code>127.0.0.1; whoami</code> or <code>127.0.0.1 && cat /etc/hostname</code></p>
+<form method="post">
+  Host: <input name="host" placeholder="127.0.0.1"><br>
+  <button type="submit">Ping</button>
+</form>
+{% if output %}<pre>{{ output }}</pre>{% endif %}
+<p><a href="{{ url_for('index') }}">Home</a></p>
+{% endblock %}

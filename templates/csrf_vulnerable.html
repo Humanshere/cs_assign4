@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>CSRF — Money Transfer (VULNERABLE, no token)</h2>
+<p>Logged in as <b>{{ user }}</b>. Balance: <b>{{ balance }}</b></p>
+<form method="post" action="{{ url_for('csrf_vulnerable_transfer') }}">
+  Amount: <input name="amount" value="100"><br>
+  To: <input name="to" value="bob"><br>
+  <button type="submit">Transfer</button>
+</form>
+<p>Now open the simulated attacker page in a new tab while "logged in" here: <a href="{{ url_for('csrf_attacker') }}">/csrf/attacker</a></p>
+<p><a href="{{ url_for('index') }}">Home</a></p>
+{% endblock %}

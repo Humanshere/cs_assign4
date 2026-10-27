@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Stored XSS (VULNERABLE)</h2>
+<p>Try posting a comment body: <code>&lt;script&gt;alert(document.cookie)&lt;/script&gt;</code></p>
+<form method="post">
+  Name: <input name="author"><br>
+  Comment: <input name="body" size="50"><br>
+  <button type="submit">Post</button>
+</form>
+<h3>Comments</h3>
+<ul>
+{% for c in comments %}
+  <li><b>{{ c.author }}:</b> {{ c.body | safe }}</li>
+{% endfor %}
+</ul>
+<p><a href="{{ url_for('index') }}">Home</a></p>
+{% endblock %}

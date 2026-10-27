@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>SQL Injection — Authentication (MITIGATED: parameterised query)</h2>
+<p>The same payloads now fail to bypass the check.</p>
+<form method="post">
+  Username: <input name="username"><br>
+  Password: <input name="password" type="password"><br>
+  <button type="submit">Login</button>
+</form>
+{% if result %}<p><b>{{ result }}</b></p>{% endif %}
+<p><a href="{{ url_for('index') }}">Home</a></p>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Web Server Security Demo{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a> |
+    <a href="{{ url_for('sql_vulnerable') }}">SQLi (vuln)</a> |
+    <a href="{{ url_for('sql_safe') }}">SQLi (safe)</a> |
+    <a href="{{ url_for('cmd_vulnerable') }}">Cmd-inj (vuln)</a> |
+    <a href="{{ url_for('cmd_safe') }}">Cmd-inj (safe)</a> |
+    <a href="{{ url_for('xss_vulnerable') }}">XSS (vuln)</a> |
+    <a href="{{ url_for('xss_safe') }}">XSS (safe)</a> |
+    <a href="{{ url_for('csrf_vulnerable') }}">CSRF (vuln)</a> |
+    <a href="{{ url_for('csrf_safe') }}">CSRF (safe)</a>
+  </nav>
+  <hr>
+  <main>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash">{% for m in messages %}<li>{{ m }}</li>{% endfor %}</ul>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

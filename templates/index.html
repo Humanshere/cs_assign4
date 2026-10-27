@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Web Server Security — Demo App</h1>
+<p>Four categories, each with a deliberately vulnerable route and a mitigated route:</p>
+<ol>
+  <li><b>SQL Injection</b> — Authentication bypass: <a href="{{ url_for('sql_vulnerable') }}">vulnerable</a> / <a href="{{ url_for('sql_safe') }}">safe</a></li>
+  <li><b>OS Command Injection</b> — In-band: <a href="{{ url_for('cmd_vulnerable') }}">vulnerable</a> / <a href="{{ url_for('cmd_safe') }}">safe</a></li>
+  <li><b>XSS</b> — Stored: <a href="{{ url_for('xss_vulnerable') }}">vulnerable</a> / <a href="{{ url_for('xss_safe') }}">safe</a></li>
+  <li><b>CSRF</b> — POST-based forged action: <a href="{{ url_for('csrf_vulnerable') }}">vulnerable</a> / <a href="{{ url_for('csrf_safe') }}">safe</a>
+      (attacker page: <a href="{{ url_for('csrf_attacker') }}">/csrf/attacker</a>)</li>
+</ol>
+<p><em>Run only on localhost. See README.md for exploit payloads and explanations.</em></p>
+{% endblock %}

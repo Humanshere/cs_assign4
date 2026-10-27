@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>OS Command Injection (MITIGATED: allow-list + no shell)</h2>
+<p>The same injection payloads are now rejected or have no effect.</p>
+<form method="post">
+  Host: <input name="host" placeholder="127.0.0.1"><br>
+  <button type="submit">Ping</button>
+</form>
+{% if error %}<p style="color:red"><b>{{ error }}</b></p>{% endif %}
+{% if output %}<pre>{{ output }}</pre>{% endif %}
+<p><a href="{{ url_for('index') }}">Home</a></p>
+{% endblock %}

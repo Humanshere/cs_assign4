@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>SQL Injection — Authentication Bypass (VULNERABLE)</h2>
+<p>Try username: <code>admin' --</code> with any password, or <code>' OR '1'='1</code> / <code>' OR '1'='1</code>.</p>
+<form method="post">
+  Username: <input name="username"><br>
+  Password: <input name="password" type="password"><br>
+  <button type="submit">Login</button>
+</form>
+{% if result %}<p><b>{{ result }}</b></p>{% endif %}
+<p><a href="{{ url_for('index') }}">Home</a></p>
+{% endblock %}
