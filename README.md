@@ -76,10 +76,10 @@ routes on any shared or public server.
 
 | Member name | Roll number | Category | Variant implemented |
 |---|---|---|---|
-| _Fill in_ | _Fill in_ | SQL Injection | Authentication bypass |
-| _Fill in_ | _Fill in_ | OS Command Injection | In-band |
-| _Fill in_ | _Fill in_ | Cross-Site Scripting (XSS) | Stored XSS |
-| _Fill in_ | _Fill in_ | Cross-Site Request Forgery (CSRF) | POST-based forged action |
+| Himansh Arora | IIB2024025 | SQL Injection | Authentication bypass |
+| Priti Yadav | IIT2024219 | OS Command Injection | In-band |
+| Aaryan Degama | IIB2024023 | Cross-Site Scripting (XSS) | Stored XSS |
+| Geethika Gorakala | IIB2024024 | Cross-Site Request Forgery (CSRF) | POST-based forged action |
 
 ## 8. Project structure
 
